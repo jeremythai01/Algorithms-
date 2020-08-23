@@ -30,7 +30,7 @@ public class Stack {
         array[this.size++] = value;
     }
 
-    public int pop() {
+    public Integer pop() {
         int deleted = array[--size];
         array[size] = null; //avoid loitering
 

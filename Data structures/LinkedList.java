@@ -77,38 +77,48 @@ public class LinkedList {
         this.length++;
     }
 
-    public void removeFirst(){
+    public Integer removeFirst(){
 
         if (this.length == 0)
-            return;
+            return null;
+	int deleted = head.value;
         head = head.next;
         this.length--;
+	return deleted;
     }
 
-    public void removeLast(){
+    public Integer removeLast(){
         if (this.length == 0)
-            return;
+            return null;
 
-        if(this.length == 1)
+        if(this.length == 1){
+	    int deleted = head.value;
             head = null;
-
+	    this.length--;
+	    return deleted;
+	}
         else {
             Node temp = head;
             while (temp.next.next != null){
                 temp = temp.next;
             }
+	    int deleted = temp.next.value;
+	    this.length--;
             temp.next = null;
+            return deleted;
         }
-        this.length--;
     }
 
-    public void remove(int index){
+    public Integer remove(int index){
         if (this.length == 0 || this.length <= index || index < 0)
-            return;
+            return null;
 
-        if (this.length == 1)
-            head = null;
-
+        if (this.length == 1){
+            int deleted = head.value;
+	    head = null;
+  	    this.length--;
+	    return deleted;
+	}
         else {
             int counter = 0;
             Node temp = head;
@@ -116,15 +126,18 @@ public class LinkedList {
                 temp = temp.next;
                 counter++;
             }
+	    int deleted = temp.next.value;
             temp.next = temp.next.next;
+  	    this.length--;
+	    return deleted;
         }
-        this.length--;
+      
     }
 
-    public int get(int index) {
+    public Integer get(int index) {
         if (this.length == 0 || this.length <= index) {
             System.out.println("Error");
-            return -1;
+            return null;
         }
         int counter = 0;
         Node temp = head;

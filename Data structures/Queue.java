@@ -40,9 +40,9 @@ public class Queue {
         size++;
     }
 
-    public int dequeue(){
+    public Integer dequeue(){
         if (isEmpty())
-            return -1; // ERROR
+            return null; // ERROR
         int deleted = first.value;
         first = first.next;
         if (size == 1)
