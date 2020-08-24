@@ -32,10 +32,6 @@ public class ArrayList {
         return size() == 0;
     }
 
-    public void trimToSize() {
-        ensureCapacity(size());
-    }
-
     public Integer get(int index) {
         if (index < 0 || index >= size)
             return null;
